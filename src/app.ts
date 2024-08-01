@@ -13,7 +13,10 @@ export const app = new Elysia({ aot: false })
       provider: "swagger-ui",
       documentation: {
         servers: [
-
+          {
+            url: 'https://hubql-elysia-demo.hubql.workers.dev',
+            description: "Petstore Demo API",
+          },
         ],
       },
     })

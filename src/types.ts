@@ -24,7 +24,3 @@ export const User = t.Object({
     lastName: t.String(),
 });
 
-export interface Env {
-    API_URL?: string
-    PORT?: number
-}
