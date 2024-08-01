@@ -6,7 +6,7 @@ import { hubqlClient } from "@hubql/elysia";
 import { storesController } from "./routes/stores";
 import { usersController } from "./routes/users";
 
-const PORT = process.env.PORT || 8080;
+const PORT = Number(process.env.PORT || 8080);
 
 export const app = new Elysia({ aot: false })
   .use(
@@ -39,8 +39,6 @@ export const app = new Elysia({ aot: false })
       },
     })
   )
-  .listen(
-    PORT,
-  );
+
 
 app.get("/", () => "Hello from Hubql!");
