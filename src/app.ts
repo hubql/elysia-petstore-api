@@ -6,7 +6,6 @@ import { hubqlClient } from "@hubql/elysia";
 import { storesController } from "./routes/stores";
 import { usersController } from "./routes/users";
 
-const PORT = Number(process.env.PORT || 8080);
 
 export const app = new Elysia({ aot: false })
   .use(
@@ -14,10 +13,7 @@ export const app = new Elysia({ aot: false })
       provider: "swagger-ui",
       documentation: {
         servers: [
-          {
-            url: process.env.API_URL as string || `http://localhost:${PORT}`,
-            description: "Petstore Demo API",
-          },
+
         ],
       },
     })
@@ -38,7 +34,4 @@ export const app = new Elysia({ aot: false })
         url: "/swagger/json",
       },
     })
-  )
-
-
-app.get("/", () => "Hello from Hubql!");
+  ).get("/", () => "Hello from Hubql!");
